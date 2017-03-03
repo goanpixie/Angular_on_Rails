@@ -1,16 +1,58 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or any plugin's vendor/assets/javascripts directory can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file.
-//
-// Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
-// about supported directives.
-//
-//= require jquery
-//= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+var app = angular.module('nbaApp', ['ngRoute']);
+app.config(function($routeProvider) {
+    $routeProvider
+        .when("/partial1", {
+            templateUrl: "/partials/partial1.html",
+            controller: "playersController"
+        })
+        .when("/partial2", {
+            templateUrl: "/partials/partial2.html",
+            controller: "teamsController"
+        })
+});
+app.controller("playersController", function($scope){
+    $scope.players = [
+        {firstName: "Michael", lastName: "Jordan"},
+        {firstName: "Kobe", lastName: "Bryant"},
+        {firstName: "Kevin", lastName: "Garnett"},
+        {firstName: "LeBron", lastName: "James"},
+        {firstName: "Stephen", lastName: "Curry"},
+        {firstName: "Jordan", lastName: "Clarkson"},
+        {firstName: "Derek", lastName: "Fisher"},
+        {firstName: "Jimmy", lastName: "Butler"}
+    ]
+})
+app.controller("teamsController", function($scope){
+    $scope.teams = [
+        {name: "Boston Celtics"},
+        {name: "Brooklyn Nets"},
+        {name: "New York Knicks"},
+        {name: "Philadelphia 76ers"},
+        {name: "Toronto Rapters"},
+        {name: "Chicago Bulls"},
+        {name: "Cleveland Cavaliers"},
+        {name: "Detroit Pistons"},
+        {name: "Indiana Pacers"},
+        {name: "Milwaukee Bucks"},
+        {name: "Atlanta Hawks"},
+        {name: "Charlotte Hornets"},
+        {name: "Miami Heat"},
+        {name: "Orlando Magic"},
+        {name: "Washington Wizards"},
+        {name: "Denver Nuggets"},
+        {name: "Minnesota Timberwolves"},
+        {name: "Oklahoma City Thunder"},
+        {name: "Portland Trail Blazers"},
+        {name: "Utah Jazz"},
+        {name: "Golden State Warriors"},
+        {name: "Los Angeles Clippers"},
+        {name: "Los Angeles Lakers"},
+        {name: "Phoenix Suns"},
+        {name: "Sacramento Kings"},
+        {name: "Dallas Mavericks"},
+        {name: "Houston Rockets"},
+        {name: "Memphis Grizzlies"},
+        {name: "New Orleans Pelicans"},
+        {name: "San Antonio Spurs"}
+    ]
+})
